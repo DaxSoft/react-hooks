@@ -1,35 +1,34 @@
-# React Hooks
+# @vorlefan/react-hooks
 
-This is my first react package that I display for the community. I have using this on my projects since I have learned to use React. By this I mean, that the overall hooks of this package, has been moduled by a time since then. I'll really appreciete if you guys give me a feedback, pull request or whatever. All hooks has been made by using Next.js in mind.
+> Useful react hooks for React &amp; Next.js app
 
-With [npm](https://npmjs.org) do:
+[![NPM](https://img.shields.io/npm/v/@vorlefan/react-hooks.svg)](https://www.npmjs.com/package/@vorlefan/react-hooks) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-```
-npm install @vorlefan/react-hooks
-```
+## Install
 
-With [yarn](https://yarnpkg.com/en/) do:
-
-```
-yarn add @vorlefan/react-hooks
+```bash
+npm install --save @vorlefan/react-hooks
 ```
 
-<hr>
-  
-### Documentation
+## Usage
 
-You guys can access the 'Docs' folder of this project to have access of the documentation of each hooks.
+```jsx
+import React, { Component } from 'react'
 
-<hr>
+import { useMyHook } from '@vorlefan/react-hooks'
 
-### Highlight
+const Example = () => {
+  const example = useMyHook()
+  return (
+    <div>{example}</div>
+  )
+}
+```
 
--  Rangle application with this package
--  Easy to use
--  Good to maintain
+## License
 
-<hr>
+MIT © [DaxSoft](https://github.com/DaxSoft)
 
-### Example
+---
 
-Please, take a look at the 'example' folder of this repository. To get a better look at the usage of each hooks, I recommend to clone the folder 'example', and run up 'npm install / yarn install' and then, 'yarn build' followed by 'yarn dev'.
+This hook is created using [create-react-hook](https://github.com/hermanya/create-react-hook).

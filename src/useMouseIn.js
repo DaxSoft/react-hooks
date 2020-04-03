@@ -14,21 +14,20 @@ import useClient from "./useClient";
  * <div ref={clickRef} />
  */
 
-export function useMouseIn(ref, callback) {
-   const { inServer } = useClient();
+export default function useMouseIn(ref, callback) {
+  const { inServer } = useClient();
 
-   if (inServer) return false;
+  if (inServer) return false;
 
-   const handleClick = useCallback(
-      (event) =>
-         ref.current && ref.current.contains(event.target) && callback(),
-      [ref]
-   );
+  const handleClick = useCallback(
+    (event) => ref.current && ref.current.contains(event.target) && callback(),
+    [ref]
+  );
 
-   useEffect(() => {
-      window.addEventListener("click", handleClick);
-      return () => window.removeEventListener("click", handleClick);
-   });
+  useEffect(() => {
+    window.addEventListener("click", handleClick);
+    return () => window.removeEventListener("click", handleClick);
+  });
 
-   return true;
+  return true;
 }

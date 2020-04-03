@@ -9,7 +9,7 @@ import useClient from "./useClient";
  * @returns {Boolean};
  */
 
-export function useMouseOut(ref, callback) {
+export default function useMouseOut(ref, callback) {
    const { inServer } = useClient();
 
    if (inServer) return false;
