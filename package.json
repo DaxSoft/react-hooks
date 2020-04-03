@@ -1,0 +1,43 @@
+{
+   "name": "@vorlefan/react-hooks",
+   "version": "1.0.0",
+   "description": "Useful hooks for React & NextJS apps",
+   "main": "src/index.js",
+   "repository": {
+      "url": "http://www.github.com/daxsoft/react-hooks",
+      "directory": "daxsoft/react-hooks",
+      "type": ""
+   },
+   "engines": {
+      "node": ">=8",
+      "npm": ">=5"
+   },
+   "scripts": {
+      "build": "",
+      "start": ""
+   },
+   "homepage": "http://www.github.com/daxsoft/react-hooks",
+   "author": {
+      "name": "Michael Willian Santos",
+      "email": "dax-soft@live.com",
+      "url": "http://www.github.com/daxsoft"
+   },
+   "license": "MIT",
+   "files": [
+      "dist"
+   ],
+   "keywords": [
+      "react",
+      "hooks",
+      "vorlefan",
+      "methods",
+      "tools"
+   ],
+   "peerDependencies": {
+      "isomorphic-fetch": "^2.2.1",
+      "react": "^16.13.1"
+   },
+   "devDependencies": {
+      "react": "^16.13.1"
+   }
+}
