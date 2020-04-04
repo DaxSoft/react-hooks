@@ -8,13 +8,13 @@ export default function useKeyboard(key, callback) {
     const [pressed, setPressed] = useState(false)
 
     const isMatching = useCallback(
-        event =>
+        (event) =>
             event && event.key && key.toLowerCase() === event.key.toLowerCase(),
         [key]
     )
 
     const onDown = useCallback(
-        event => {
+        (event) => {
             if (isMatching(event)) {
                 setPressed(true)
                 if (typeof callback === 'function') {
@@ -25,9 +25,10 @@ export default function useKeyboard(key, callback) {
         [callback]
     )
 
-    const onUp = useCallback(event => isMatching(event) && setPressed(false), [
-        key,
-    ])
+    const onUp = useCallback(
+        (event) => isMatching(event) && setPressed(false),
+        [key]
+    )
 
     useEffect(() => {
         window.addEventListener('keydown', onDown)

@@ -3,8 +3,8 @@ import commonjs from 'rollup-plugin-commonjs'
 import external from 'rollup-plugin-peer-deps-external'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
-
 import pkg from './package.json'
+const path = require('path')
 
 export default {
   input: 'src/index.js',
@@ -26,7 +26,11 @@ export default {
     babel({
       exclude: 'node_modules/**'
     }),
-    resolve(),
+    resolve({
+      alias: {
+        react: path.resolve(__dirname, '..', './node_modules/react')
+      }
+    }),
     commonjs()
   ]
 }

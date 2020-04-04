@@ -1,5 +1,5 @@
-import { useMemo } from "react";
-import useBoolean from "./useBoolean";
+import { useMemo } from 'react'
+import useBoolean from './useBoolean'
 
 /**
  * @description create a toggle object handler
@@ -27,67 +27,69 @@ import useBoolean from "./useBoolean";
  */
 
 export default function useToggle(data) {
-   const state = {};
-   const dollarSign = {};
+    const state = {}
+    const dollarSign = {}
 
-   Object.keys(data).map((dataKey) => {
-      state[dataKey] = useBoolean(!!data[dataKey]);
-      dollarSign[`$${dataKey}`] = state[dataKey];
-   });
+    Object.keys(data).map((dataKey) => {
+        state[dataKey] = useBoolean(!!data[dataKey])
+        dollarSign[`$${dataKey}`] = state[dataKey]
+    })
 
-   return useMemo(
-      () => ({
-         state,
-         toggle: (key) => state.hasOwnProperty(key) && state[key].toggle(),
-         set: (key, value) => {
-            if (state.hasOwnProperty(key)) {
-               state[key].set(value);
-            } else {
-               state[key] = useBoolean(value);
-            }
-         },
-         check: (key) => !!state[key].state,
-         highlight: (key) => {
-            for (const option in state) {
-               state[option].set(key === option);
-            }
-         },
-         shadow: (key) => {
-            for (const option in state) {
-               state[option].set(key !== option);
-            }
-         },
-         reset: (value = false) => {
-            for (const option in state) {
-               state[option].set(value);
-            }
-         },
-         enabled: () => Object.keys(state).filter((key) => state[key].isOn()),
-         disabled: () => Object.keys(state).filter((key) => state[key].isOff()),
-         keys: () => Object.keys(state),
-         each: (callback) =>
-            Object.keys(state).map((key, index) =>
-               callback({ key, index, value: state[key] })
-            ),
-         isAll: (value = true, except = null) => {
-            let checker = true;
-            for (const option in state) {
-               const stateValue = state[option].state;
-               const hasException = Array.isArray(except)
-                  ? except.indexOf(option) !== -1
-                  : false;
+    return useMemo(
+        () => ({
+            state,
+            toggle: (key) => state.hasOwnProperty(key) && state[key].toggle(),
+            set: (key, value) => {
+                if (state.hasOwnProperty(key)) {
+                    state[key].set(value)
+                } else {
+                    state[key] = useBoolean(value)
+                }
+            },
+            check: (key) => !!state[key].state,
+            highlight: (key) => {
+                for (const option in state) {
+                    state[option].set(key === option)
+                }
+            },
+            shadow: (key) => {
+                for (const option in state) {
+                    state[option].set(key !== option)
+                }
+            },
+            reset: (value = false) => {
+                for (const option in state) {
+                    state[option].set(value)
+                }
+            },
+            enabled: () =>
+                Object.keys(state).filter((key) => state[key].isOn()),
+            disabled: () =>
+                Object.keys(state).filter((key) => state[key].isOff()),
+            keys: () => Object.keys(state),
+            each: (callback) =>
+                Object.keys(state).map((key, index) =>
+                    callback({ key, index, value: state[key] })
+                ),
+            isAll: (value = true, except = null) => {
+                let checker = true
+                for (const option in state) {
+                    const stateValue = state[option].state
+                    const hasException = Array.isArray(except)
+                        ? except.indexOf(option) !== -1
+                        : false
 
-               //console.log(option, stateValue, 'except', hasException);
+                    //console.log(option, stateValue, 'except', hasException);
 
-               if (!hasException && stateValue !== value) {
-                  checker = false;
-                  break;
-               }
-            }
-            return checker;
-         },
-         ...dollarSign,
-      }),
-      [state]
-   );
+                    if (!hasException && stateValue !== value) {
+                        checker = false
+                        break
+                    }
+                }
+                return checker
+            },
+            ...dollarSign,
+        }),
+        [state]
+    )
 }

@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
-import useClient from "./useClient";
+import { useState, useEffect, useCallback, useMemo } from 'react'
+import useClient from './useClient'
 
 /**
  * @function useMiddleMouse
@@ -15,49 +15,49 @@ import useClient from "./useClient";
  */
 
 export default function useMiddleMouse(threshould) {
-   const { inServer } = useClient();
-   if (!!inServer) return;
+    const { inServer } = useClient()
+    if (!!inServer) return
 
-   const target = window;
+    const target = window
 
-   const [direction, setDirection] = useState(0);
+    const [direction, setDirection] = useState(0)
 
-   const handleDirection = useCallback(
-      ({ event, threshould, setDirection }) => {
-         if (event.deltaY < -threshould) {
-            setDirection(-1);
-         } else if (event.deltaY > threshould) {
-            setDirection(1);
-         }
-      },
-      []
-   );
+    const handleDirection = useCallback(
+        ({ event, threshould, setDirection }) => {
+            if (event.deltaY < -threshould) {
+                setDirection(-1)
+            } else if (event.deltaY > threshould) {
+                setDirection(1)
+            }
+        },
+        []
+    )
 
-   useEffect(() => {
-      target.addEventListener("wheel", (event) =>
-         handleDirection({
-            event,
-            setDirection,
-            threshould,
-         })
-      );
-
-      return () => {
-         target.removeEventListener("wheel", (event) =>
+    useEffect(() => {
+        target.addEventListener('wheel', (event) =>
             handleDirection({
-               event,
-               setDirection,
-               threshould,
+                event,
+                setDirection,
+                threshould,
             })
-         );
-      };
-   }, []);
+        )
 
-   return useMemo(
-      () => ({
-         direction,
-         setDirection,
-      }),
-      [direction]
-   );
+        return () => {
+            target.removeEventListener('wheel', (event) =>
+                handleDirection({
+                    event,
+                    setDirection,
+                    threshould,
+                })
+            )
+        }
+    }, [])
+
+    return useMemo(
+        () => ({
+            direction,
+            setDirection,
+        }),
+        [direction]
+    )
 }

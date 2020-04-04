@@ -1,5 +1,5 @@
-import { useMemo, useCallback } from "react";
-import useObject from "./useObject";
+import { useMemo, useCallback } from 'react'
+import useObject from './useObject'
 
 /**
  * @function useIndex
@@ -22,69 +22,69 @@ import useObject from "./useObject";
  */
 
 export default function useIndex({
-   value = 0,
-   min = 0,
-   max = 9,
-   reverse = true,
-   step = 1,
-   format = null,
+    value = 0,
+    min = 0,
+    max = 9,
+    reverse = true,
+    step = 1,
+    format = null,
 }) {
-   const setup = useObject({
-      value,
-      min,
-      max,
-      reverse,
-      step,
-      format,
-   });
+    const setup = useObject({
+        value,
+        min,
+        max,
+        reverse,
+        step,
+        format,
+    })
 
-   const handleFormat = useCallback(
-      (value) =>
-         typeof setup.state.format === "function"
-            ? setup.state.format(value)
-            : value,
-      [setup.state.format]
-   );
+    const handleFormat = useCallback(
+        (value) =>
+            typeof setup.state.format === 'function'
+                ? setup.state.format(value)
+                : value,
+        [setup.state.format]
+    )
 
-   return useMemo(
-      () => ({
-         // index
-         setup,
-         state: setup.state.value,
-         next: () =>
-            setup.set(
-               "value",
-               handleFormat(setup.state.value) >= setup.state.max
-                  ? setup.state.reverse
-                     ? setup.state.min
-                     : setup.state.max
-                  : setup.state.value + setup.state.step
-            ),
-         pred: () =>
-            setup.set(
-               "value",
-               handleFormat(setup.state.value) <= setup.state.min
-                  ? setup.state.reverse
-                     ? setup.state.max
-                     : setup.state.min
-                  : setup.state.value - setup.state.step
-            ),
-         set: (state) => setup.set("value", state),
-         is: (index) => handleFormat(setup.state.value) === index,
-         not: (index) => handleFormat(setup.state.value) !== index,
-         between: (a, b) => {
-            const value = handleFormat(setup.state.value);
-            return value >= a && value <= b;
-         },
-         among: (values) =>
-            Array.isArray(values) &&
-            values.indexOf(handleFormat(setup.state.value)) !== -1,
-         start: () => setup.set("value", setup.state.min),
-         end: () => setup.set("value", setup.state.max),
-         list: (value) => new Array(value || setup.state.max).fill(1),
+    return useMemo(
+        () => ({
+            // index
+            setup,
+            state: setup.state.value,
+            next: () =>
+                setup.set(
+                    'value',
+                    handleFormat(setup.state.value) >= setup.state.max
+                        ? setup.state.reverse
+                            ? setup.state.min
+                            : setup.state.max
+                        : setup.state.value + setup.state.step
+                ),
+            pred: () =>
+                setup.set(
+                    'value',
+                    handleFormat(setup.state.value) <= setup.state.min
+                        ? setup.state.reverse
+                            ? setup.state.max
+                            : setup.state.min
+                        : setup.state.value - setup.state.step
+                ),
+            set: (state) => setup.set('value', state),
+            is: (index) => handleFormat(setup.state.value) === index,
+            not: (index) => handleFormat(setup.state.value) !== index,
+            between: (a, b) => {
+                const value = handleFormat(setup.state.value)
+                return value >= a && value <= b
+            },
+            among: (values) =>
+                Array.isArray(values) &&
+                values.indexOf(handleFormat(setup.state.value)) !== -1,
+            start: () => setup.set('value', setup.state.min),
+            end: () => setup.set('value', setup.state.max),
+            list: (value) => new Array(value || setup.state.max).fill(1),
 
-         // paginate
-      }),
-      [setup.state]
-   );
+            // paginate
+        }),
+        [setup.state]
+    )
 }

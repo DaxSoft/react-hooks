@@ -1,5 +1,5 @@
-import { useEffect, useCallback } from "react";
-import useClient from "./useClient";
+import { useEffect, useCallback } from 'react'
+import useClient from './useClient'
 
 /**
  * @function useMouseOut
@@ -10,20 +10,20 @@ import useClient from "./useClient";
  */
 
 export default function useMouseOut(ref, callback) {
-   const { inServer } = useClient();
+    const { inServer } = useClient()
 
-   if (inServer) return false;
+    if (inServer) return false
 
-   const handleClick = useCallback(
-      (event) =>
-         ref.current && !ref.current.contains(event.target) && callback(),
-      [ref]
-   );
+    const handleClick = useCallback(
+        (event) =>
+            ref.current && !ref.current.contains(event.target) && callback(),
+        [ref]
+    )
 
-   useEffect(() => {
-      window.addEventListener("click", handleClick);
-      return () => window.removeEventListener("click", handleClick);
-   });
+    useEffect(() => {
+        window.addEventListener('click', handleClick)
+        return () => window.removeEventListener('click', handleClick)
+    })
 
-   return true;
+    return true
 }
