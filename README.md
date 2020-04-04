@@ -10,20 +10,17 @@
 npm install --save @vorlefan/react-hooks
 ```
 
+```bash
+yarn add  @vorlefan/react-hooks
+```
+
 ## Usage
 
-```jsx
-import React, { Component } from 'react'
+I recommend to use the 'example' project on 'example' folder of this rep. To install it, just clone the folder and run up 'npm install & npm run build', after it, just run up 'npm start'
 
-import { useMyHook } from '@vorlefan/react-hooks'
+## Documentation
 
-const Example = () => {
-  const example = useMyHook()
-  return (
-    <div>{example}</div>
-  )
-}
-```
+Every hooks has their documentation under the folder 'docs' of this repository.
 
 ## License
 
