@@ -104,7 +104,7 @@ export default function useFetch(
                 .catch((err) => {
                     setError(err)
                     success.off()
-                    if (typeof onSuccess === 'function') onError(err)
+                    if (typeof onError === 'function') onError(err)
                     loading.off()
                 })
         }
