@@ -88,7 +88,7 @@ export default function useFetch(
             //     })
             // }
 
-            fetch(`${uri}${queryUrl.length > 0 ? '?' + queryUrl : queryUrl}`, {
+            fetch(`${uri}${queryUrl}`, {
                 ...options,
             })
                 .then(async (response) => {
