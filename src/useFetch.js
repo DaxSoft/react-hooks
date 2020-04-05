@@ -1,7 +1,19 @@
 import { useState, useEffect, useCallback } from 'react'
-
 import useBoolean from './useBoolean'
 import useObject from './useObject'
+
+function objectToQuerystring(obj) {
+    return (
+        '?' +
+        Object.keys(obj)
+            .map((key) => {
+                return `${encodeURIComponent(key)}=${encodeURIComponent(
+                    obj[key]
+                )}`
+            })
+            .join('&')
+    )
+}
 
 export default function useFetch(
     {
@@ -65,14 +77,16 @@ export default function useFetch(
                 options.body = serializer(setup.state)
             }
 
-            let queryUrl = ''
+            let queryUrl = queries.isValid()
+                ? objectToQuerystring(queries.state)
+                : ''
 
-            if (queries.isValid()) {
-                queries.each(({ value, key, index }) => {
-                    queryUrl += `${key}=${value}`
-                    if (index !== queries.length() - 1) queryUrl += '&'
-                })
-            }
+            // if (queries.isValid()) {
+            //     queries.each(({ value, key, index }) => {
+            //         queryUrl += `${key}=${value}`
+            //         if (index !== queries.length() - 1) queryUrl += '&'
+            //     })
+            // }
 
             fetch(`${uri}${queryUrl.length > 0 ? '?' + queryUrl : queryUrl}`, {
                 ...options,
