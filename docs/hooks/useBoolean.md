@@ -27,7 +27,6 @@ const Component = ({}) => {
 
 ## Return State
 
-
 ```js
 const { state, set, on, off, isOn, isOff, hex, toggle } = useBoolean(false)
 ```
@@ -40,5 +39,3 @@ const { state, set, on, off, isOn, isOff, hex, toggle } = useBoolean(false)
 -   **isOff** : _Function_ : Check if it is false
 -   **hex** : Get the HEX value
 -   **toggle** : If it is 'true' turn on 'false'. If it is 'false', turn on 'true'
-
-
