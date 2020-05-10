@@ -24,7 +24,7 @@ yarn add @vorlefan/react-hooks
 
 ## Size
 
-![bundlephobia](https://bundlephobia.com/result?p=@vorlefan/react-hooks@1.2.0)
+[bundlephobia](https://bundlephobia.com/result?p=@vorlefan/react-hooks@1.2.0)
 Minified: 8.6kB
 Minified + GZIPPED: 2.6kB
 
