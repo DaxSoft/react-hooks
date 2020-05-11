@@ -4,7 +4,7 @@
 > This is my first react package 
 > This is my first attempt with TypeScript
 
-[![NPM](https://img.shields.io/npm/v/@vorlefan/react-hooks.svg)](https://www.npmjs.com/package/@vorlefan/react-hooks) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@vorlefan/react-hooks.svg)](https://www.npmjs.com/package/@vorlefan/react-hooks) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![https://badgen.net/bundlephobia/minzip/@vorlefan/react-hooks](https://badgen.net/bundlephobia/minzip/@vorlefan/react-hooks)](https://bundlephobia.com/result?p=@vorlefan/react-hooks)
 
 ## Introduction
 
