@@ -1,80 +1,50 @@
 # @vorlefan/react-hooks
 
-<center>
-*Useful react hooks for React &amp; Next.js app*</center>
+> Useful react hooks for React &amp;amp; Next.js app
+> This is my first react package
+> This is my first attempt with TypeScript
 
-------------
+[![NPM](https://img.shields.io/npm/v/@vorlefan/react-hooks.svg)](https://www.npmjs.com/package/@vorlefan/react-hooks) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![https://badgen.net/bundlephobia/minzip/@vorlefan/react-hooks](https://badgen.net/bundlephobia/minzip/@vorlefan/react-hooks)](https://bundlephobia.com/result?p=@vorlefan/react-hooks)
 
+## Introduction
 
-[![NPM](https://img.shields.io/npm/v/@vorlefan/react-hooks.svg)](https://www.npmjs.com/package/@vorlefan/react-hooks) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+_@vorlefan/react-hooks_ is my first package that I have build for React. It's come from the needs of my person when creating a website that uses (Next.js). I was requiring hooks that works well in both server/client side.
+
+And to take a good learning from this, I have decided to create this package with TypeScript, since I never used it xD.
+I shall really thank you, dear visitor, if you can provide me with feedbacks (issues and pull request).
+
+Thanks for watching <3
 
 ## Install
 
 ```bash
 npm install --save @vorlefan/react-hooks
+yarn add @vorlefan/react-hooks
 ```
 
-```bash
-yarn add  @vorlefan/react-hooks
-```
+## Size
+
+[bundlephobia](https://bundlephobia.com/result?p=@vorlefan/react-hooks@1.2.0)
+Minified: 8.6kB
+Minified + GZIPPED: 2.6kB
 
 ## Usage
 
-Ir covers up a range of case. Take a look at the list of hooks and some uses of each one.
+Checkout the 'docs' folder
 
-**useAsync** 
-- Handle with async functions at easy
-- If you want to handle with heavy functions or methods that requires a time to be working well
+## Hooks
 
-**useBoolean** 
-- Better way and with a nice semantic to handle Boolean states
-
-**useClient**
-- Only useful if you are handling with apps that it's Server-Side as Next.js.
-
-**useDebounce**
-- For functions that the user can call any time
-
-**useFetch**
-- Hook to do requests on API with a complete suit of options as well handling each state of a 'call'.
-
-**useIndex**
-- With this you can handle with 'Pagination' or whatever use the concept of 'Page Index', 'Per Page'
-
-**useLocalStorage**
--  Save values it and get the values on LocalStorage
-
-**useMiddleMouse**
-- Identify if the user is using the MiddleMouse (scrolling)
-
-**useMouseOut**
-- Identify if the mouse cursor is out of the range of the element
-
-**useMouseIn**
-- Identify if the mosue cursor is inside of the range of the element
-
-**useObject**
-- Complete suit to handle with Object elements.
-
-**useScreenSize**
-- Identify the size of the Window and the orientation of the screen.
-
-**useScroll**
--  Identify the state of the scroll of the page
-
-**useToggle**
-- Useful to handle with Toggle elements like 'Tabs' and so on.
-
-
-
-## Documentation
-
-Every hooks has their documentation under the folder 'docs' of this repository.
-
-I recommend to look at the 'example' project on 'example' folder of this repository. To install it, just clone the folder and run up:
-```bash
- npm install & npm run build & npm run start
-```
+-   `useBoolean` : Handler for Boolean values
+-   `useObject` : Handler for Object values
+-   `useLocalStorage` : Save & load things on Local Storage
+-   `useFetch` : Request API with any fetch library that you want to (node-fetcher, isomorphic-unfetch, fetch)
+-   `useMiddleMouse` : Check the wheel of the Mouse
+-   `useMouseIn` : Check if the mouse is 'in or out' of a HTMLElement
+-   `useDebounce` : Invokes a debounce function
+-   `useIndex` : Handler for pagination elements
+-   `useToggle` : Handler for elements that only appers when some variable is true
+-   `useScreenSize` : Handler to get the size of the windows screen. Useful to create responsive app
+-   `useScroll` : Handler to get informations about the scrolling of the screen
 
 ## License
 
